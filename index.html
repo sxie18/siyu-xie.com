@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siyu Xie - Personal Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #8C9EF0;
+            --secondary-color: #D2E1FF;
+            --dark-color: #5B74D9;
+            --light-color: #FCFCFC;
+            --accent-color: #C7B0ED;
+            --text-color: #333333;
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;  /* For smooth scrolling */
+            scroll-padding-top: 120px; /* Increased offset for fixed header */
+        }
+        
+        section {
+            padding-top: 120px; /* Increased padding to match scroll-padding */
+            padding-bottom: 5rem;
+        }
+        
+        body {
+            font-family: 'EB Garamond', Georgia, serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(163, 190, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(182, 196, 255, 0.06) 0%, transparent 40%);
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: 
+                linear-gradient(135deg, #7998e6 3%, #ccd5ea 18%, #A3BEFF 75%, #C7B0ED 100%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Cfilter id='a'%3E%3CfeTurbulence baseFrequency='.2' numOctaves='2' seed='1' result='turb'/%3E%3CfeDisplacementMap in2='turb' in='SourceGraphic' scale='30'/%3E%3CfeGaussianBlur stdDeviation='5'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='2000' height='1500' fill='none' opacity='.15' filter='url(%23a)'/%3E%3C/svg%3E");
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 6rem 0;
+            transition: all 1s ease-in-out;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 25px rgba(199, 176, 237, 0.25);
+            border-radius: 0;
+            margin: 0;
+            width: 100%;
+            line-height: 2;
+            height: auto;
+            min-height: 120px; /* Set minimum height for header */
+        }
+        
+        header.shrink {
+            min-height: 80px;
+            padding: 1.5rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-align: center; /* Center text alignment */
+            width: 100%; /* Full width */
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center; /* Center navigation items */
+            width: 100%; /* Full width */
+        }
+        
+        nav ul li {
+            margin-left: 3.5rem;
+            margin-right: 3.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 90vh;
+            padding-top: 0; /* Remove extra padding for hero section */
+            margin-top: -120px; /* Compensate for header height */
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(42, 61, 69, 0.5), rgba(42, 61, 69, 0.5)), url('images/background.jpeg') center/cover;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .hero .btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .hero .btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* MINIMALIST MIDDLE SECTION STYLES */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: #000;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: inline-block;
+            padding: 0 1rem;
+            background: var(--light-color);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 25%;
+            right: 25%;
+            top: 50%;
+            height: 1px;
+            background: #ddd;
+            z-index: 0;
+        }
+        
+        /* About section */
+        .about-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 4rem;
+        }
+        
+        .about-image {
+            flex: 0 0 300px;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 20px rgba(140, 158, 240, 0.15);
+            position: relative;
+        }
+        
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+            filter: brightness(1.2) contrast(1.02) saturate(1.1) sepia(0.15) hue-rotate(-20deg);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.25) contrast(1.03) saturate(1.2) sepia(0.15) hue-rotate(-25deg);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #000;
+            font-weight: 400;
+        }
+        
+        .about-text p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        /* Academic section */
+        .academic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+        
+        .academic-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .academic-content {
+            padding: 0;
+        }
+        
+        .academic-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: #000;
+            font-weight: 400;
+        }
+        
+        .academic-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #777;
+        }
+        
+        .academic-meta span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .academic-abstract {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .academic-abstract p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .academic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .academic-tag {
+            border: 1px solid #000;
+            color: #000;
+            padding: 0.4rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        /* Graphic design section */
+        .graphic {
+            background: #fff;
+            color: #000;
+            text-align: center;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: none;
+            position: relative;
+            text-align: center;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-item:hover img {
+            /* removing opacity hover effect */
+        }
+        
+        .gallery-item-info {
+            position: static;
+            background: transparent;
+            color: #000;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .gallery-item-info h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #000;
+            font-weight: 400;
+        }
+        
+        .gallery-item-info p {
+            font-size: 1.1rem;
+        }
+        
+        /* Poetry section */
+        .poetry {
+            text-align: center;
+        }
+        
+        .poetry-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .poetry-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: none;
+            box-shadow: none;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .poetry-content {
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .poetry-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.8rem;
+            color: #000;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        .poetry-content p {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        
+        /* Contact section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: #2A3D45;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .contact-icon {
+            margin-right: 1rem;
+        }
+        
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+        
+        .contact-item span {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 1.2rem;
+            color: #2A3D45;
+            letter-spacing: 0.05em;
+        }
+        
+        .contact-item a {
+            text-decoration: none;
+            color: #2A3D45;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        
+        .footer-contact {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact .contact-item a,
+        .footer-contact .contact-item span {
+            color: white;
+            text-decoration: none;
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-contact .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+        
+        h3.footer-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 0.7rem;
+                margin-right: 0.7rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-contact {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <script>
+        window.addEventListener("scroll", function() {
+            let header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+            } else {
+                header.classList.remove("shrink");
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                Siyu Xie
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#graphic">Graphic</a></li>
+                    <li><a href="#poetry">Poetry</a></li>
+                    <li><a href="#critical-inquiries">Critical Inquiries</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Art, Poetry & Essays Portfolio</h1>
+            <p>A nomadic collection of inspirations across spheres</p>
+            <a href="#graphic" class="btn">Explore My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/profile.jpeg" alt="Siyu Xie's profile photo">
+                </div>
+                <div class="about-text">
+                    <p>I am currently a doctoral researcher at the Department of Comparative Thought and Literature at Johns Hopkins University. My dissertation project examines how plants grow out of the pages of literature in the 16th-18th centuries in China and looks into how the literary circle leaf their words to story their relationship with the non-human world.</p>
+                    <p>This webpage is a creative space that shelters my other crafts and experiments. This ecology invites to you sense rather than analyze, to let concepts vibrate and grow fluffy edges, to allow half-formed thoughts to drift like shiny dust in the air, where resonance holds most wonder.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="graphic" class="graphic">
+        <div class="container">
+            <div class="section-title">
+                <h2>Graphic</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/tritri.jpeg" alt="Color pencil drawing of a hedgehog named Tritri">
+                    <div class="gallery-item-info">
+                        <h4>Tritri</h4>
+                        <p>Color Pencil Drawing, 2024</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/cats_on_bonbons.jpeg" alt="Color pencil drawing of cats on bonbons">
+                    <div class="gallery-item-info">
+                        <h4>Cats on Bonbons</h4>
+                        <p>Color Pencil Drawing, 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="poetry" class="poetry">
+        <div class="container">
+            <div class="section-title">
+                <h2>Poetry</h2>
+            </div>
+            <div class="poetry-list">
+                <div class="poetry-card">
+                    <div class="poetry-content">
+                        <h3 style="text-align: center;">Flu</h3>
+                        <p style="white-space: pre; text-align: center; font-family: 'EB Garamond', Georgia, serif; line-height: 1.5;">            Water
+          drips from
+        my nose like tears,
+      pattering down. I lower
+    my head and see them clinging,
+  droplet by droplet, to my wool coat.
+ Black pepper churns in my stomach.
+The evening glow melts into a cream cake.
+ Wearing glasses is incompatible with
+   the mask, turning the autumn trees
+      into <i>Impressionism</i>.</p>
+                        <p style="text-align: right; font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; margin-top: 1.5rem; margin-right: 4rem; color: #666;">Beijing, 2019</p>
+                    </div>
+                </div>
+                <div class="poetry-card">
+                    <div class="poetry-content">
+                        <h3><i>Pas de chat</i></h3>
+                        <p style="white-space: pre; text-align: center; font-family: 'EB Garamond', Georgia, serif; line-height: 1.5;">The dance teacher tells me to
+feel the air [                        ] with my skin.
+Fill the air [                        ].
+<i>The more you feel it, the more you'll shine.</i></p>
+                        <p style="white-space: pre; text-align: center; font-family: 'EB Garamond', Georgia, serif; line-height: 1.5;"><b>Flow</b>
+
+Cats feel                                                                          air's
+    temperature and currents, with their skin.
+        That I have long heard—
+            their sensory receptors.
+                    Their tails,
+                    like octopus tentacles,
+                    unfurl in the deep sea.
+
+                                                like a vine,
+                                                                                like a spiral,
+                                                                                                    like the hem
+                                                                                                                                    of a jellyfish's skirt,
+Nestling into the ocean's deepest ripples.</p>
+                        <p style="text-align: right; font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; margin-top: 1.5rem; margin-right: 4rem; color: #666;">Locationless, dateless</p>
+                    </div>
+                </div>
+                <div class="poetry-card">
+                    <div class="poetry-content">
+                        <h3 style="text-align: center;">Urban rebirth</h3>
+                        <p style="white-space: pre; text-align: left; font-family: 'EB Garamond', Georgia, serif; line-height: 1.5;">We |stand| without support,
+Or perhaps we tumble.
+We learn to breathe carefully,
+Or risk inhaling the scent of a stranger's scalp.
+We glimpse many private details:
+Hairs on necks- oil from hair- dirt beneath nails-
+A scalped cutting into a pulsing organ-
+The surgeon learning from bloody videos-
+Erotic novels and chat histories on a giant phone screen.
+Struggling to squeeze out of the subway, we exhale,
+My sister exclaims: It feels like I've just been born.
+The rush hour turned us into twins.</p>
+                        <p style="text-align: right; font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; margin-top: 1.5rem; margin-right: 4rem; color: #666;">Locationless, dateless</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="critical-inquiries" class="critical-inquiries">
+        <div class="container">
+            <div class="section-title">
+                <h2>Critical Inquiries</h2>
+            </div>
+            <div class="critical-inquiries-list">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-title">Connect With Me</h3>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <a href="mailto:sxie18@jhu.edu">sxie18@jhu.edu</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M12 21C12 21 19 16.1538 19 9.5C19 5.91015 15.866 3 12 3C8.13401 3 5 5.91015 5 9.5C5 16.1538 12 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <span>Baltimore, MD</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p class="copyright">&copy; 2025 Siyu Xie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
