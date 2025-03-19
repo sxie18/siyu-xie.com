@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siyu Xie | Poetry, Art & Critical Inquiries</title>
+    <title>Siyu Xie - Personal Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
         
@@ -60,7 +60,7 @@
             transition: all 1s ease-in-out;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 100;            
             box-shadow: 0 4px 25px rgba(199, 176, 237, 0.25);
             border-radius: 0;
             margin: 0;
@@ -610,6 +610,59 @@
                 gap: 1rem;
             }
         }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0.5rem;
+            }
+            .card {
+                padding: 0.5rem;
+            }
+            .logo {
+                font-size: 1.8rem; /* Adjust logo size */
+            }
+            nav ul {
+                flex-direction: column; /* Stack navigation items vertically */
+                align-items: center;
+            }
+            nav ul li {
+                margin: 0.5rem 0; /* Adjust margin for navigation items */
+            }
+            .hero h1 {
+                font-size: 2rem; /* Adjust hero section heading size */
+            }
+            .hero p {
+                font-size: 1rem; /* Adjust hero section paragraph size */
+            }
+            .hero .btn {
+                padding: 0.6rem 1rem; /* Adjust button padding */
+            }
+            .about-content {
+                flex-direction: column; /* Stack about section content vertically */
+                align-items: center;
+            }
+            .about-image {
+                width: 80%; /* Adjust image width */
+                margin-bottom: 1rem; /* Add margin below image */
+            }
+            .about-text {
+                text-align: center; /* Center align text */
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr; /* Single column grid */
+            }
+            .poetry-list {
+                grid-template-columns: 1fr; /* Single column grid */
+            }
+            .footer-contact {
+                flex-direction: column; /* Stack footer contact items vertically */
+                align-items: center;
+            }
+            .social-links {
+                flex-direction: column; /* Stack social links vertically */
+                gap: 0.5rem; /* Adjust gap between social links */
+            }
+        }
     </style>
     <script>
         window.addEventListener("scroll", function() {
@@ -660,7 +713,7 @@
                 </div>
                 <div class="about-text">
                     <p>I am currently a doctoral researcher at the Department of Comparative Thought and Literature at Johns Hopkins University. My dissertation project examines how plants grow out of the pages of literature in the 16th-18th centuries in China and looks into how the literary circle leaf their words to story their relationship with the non-human world.</p>
-                    <p>This webpage is a creative space that shelters my other crafts and experiments. This ecology invites to you sense rather than analyze, to let concepts vibrate and grow fluffy edges, to allow half-formed thoughts to drift, where resonance creates most wonder.</p>
+                    <p>This webpage is a creative space that shelters my other crafts and experiments. This ecology invites to you sense rather than analyze, to let concepts vibrate and grow fluffy edges, to allow half-formed thoughts to drift like shiny dust in the air, where resonance holds most wonder.</p>
                 </div>
             </div>
         </div>
