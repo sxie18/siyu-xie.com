@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siyu Xie </title>
+    <meta name="description" content="Siyu Xie - PhD candidate in Comparative Thought and Literature at Johns Hopkins University. Research in Chinese literature, environmental humanities, and plant studies.">
+    <meta name="keywords" content="Siyu Xie, Chinese literature, environmental humanities, plant studies, Johns Hopkins University, comparative literature">
+    <meta name="author" content="Siyu Xie">
+    <meta property="og:title" content="Siyu Xie - Academic Portfolio">
+    <meta property="og:description" content="PhD candidate in Comparative Thought and Literature at Johns Hopkins University. Research in Chinese literature, environmental humanities, and plant studies.">
+    <meta property="og:image" content="https://yourdomain.com/images/profile.jpeg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <link rel="canonical" href="https://yourdomain.com">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
         
@@ -67,12 +75,12 @@
             width: 100%;
             line-height: 2;
             height: auto;
-            min-height: 120px; /* Set minimum height for header */
+            min-height: 80px; /* Reduced minimum height */
         }
         
         header.shrink {
-            min-height: 80px;
-            padding: 1.5rem 0;
+            min-height: 60px; /* Reduced shrink height */
+            padding: 1rem 0; /* Reduced shrink padding */
         }
         
         .header-content {
@@ -86,7 +94,7 @@
             font-size: 2.5rem;
             font-weight: 600;
             letter-spacing: 3px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             text-align: center; /* Center text alignment */
             width: 100%; /* Full width */
         }
@@ -437,6 +445,193 @@
             text-align: center;
         }
         
+        /* Research and Teaching sections */
+        .research, .teaching {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        .research-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .research-item {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .research-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        
+        .research-item:nth-child(1)::before {
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(76, 175, 80, 0.4) 0%, transparent 70%),
+                radial-gradient(circle at 20% 30%, var(--primary-color) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, var(--accent-color) 0%, transparent 50%),
+                radial-gradient(circle at 95% 50%, rgba(76, 175, 80, 0.3) 0%, transparent 60%);
+        }
+        
+        .research-item:nth-child(1)::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            right: 15%;
+            width: 25px;
+            height: 80px;
+            background: rgba(76, 175, 80, 0.4);
+            border-radius: 50% 0 50% 50%;
+            transform: rotate(-15deg);
+            filter: blur(2px);
+            pointer-events: none;
+            z-index: 0;
+            animation: fallLeaf1 3s ease-in-out;
+        }
+        
+        .research-item:nth-child(1) .research-text::before {
+            content: '';
+            position: absolute;
+            top: 60%;
+            right: 25%;
+            width: 30px;
+            height: 70px;
+            background: rgba(76, 175, 80, 0.3);
+            border-radius: 50% 0 50% 50%;
+            transform: rotate(25deg);
+            filter: blur(2px);
+            pointer-events: none;
+            z-index: 0;
+            animation: fallLeaf2 4s ease-in-out;
+        }
+        
+        @keyframes fallLeaf1 {
+            0% {
+                top: -20%;
+                right: 50%;
+                transform: rotate(-15deg) translateX(-50%);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                top: 30%;
+                right: 15%;
+                transform: rotate(-15deg);
+                opacity: 0.4;
+            }
+        }
+        
+        @keyframes fallLeaf2 {
+            0% {
+                top: -15%;
+                right: 45%;
+                transform: rotate(25deg) translateX(-50%);
+                opacity: 0;
+            }
+            25% {
+                opacity: 1;
+            }
+            100% {
+                top: 60%;
+                right: 25%;
+                transform: rotate(25deg);
+                opacity: 0.3;
+            }
+        }
+        
+        .research-item:nth-child(2)::before {
+            background: 
+                radial-gradient(circle at 30% 70%, var(--primary-color) 0%, transparent 60%),
+                radial-gradient(circle at 70% 30%, var(--accent-color) 0%, transparent 60%);
+        }
+        
+        .research-item:nth-child(3)::before {
+            background: 
+                radial-gradient(circle at 50% 50%, var(--accent-color) 0%, transparent 70%);
+        }
+        
+        .research-item:nth-child(4)::before {
+            background: 
+                linear-gradient(90deg, var(--primary-color) 0%, transparent 50%);
+        }
+        
+        .research-image {
+            flex: 0 0 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .research-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .research-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .research-text {
+            flex: 1;
+        }
+        
+        .research-text h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        
+        .research-text p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .teaching-list {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .teaching-list h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .teaching-list p {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
         /* Contact section */
         .contact {
             padding: 5rem 0;
@@ -641,6 +836,14 @@
                 flex-direction: column; /* Stack about section content vertically */
                 align-items: center;
             }
+            .research-item {
+                flex-direction: column; /* Stack research items vertically on mobile */
+                align-items: center;
+                text-align: center;
+            }
+            .research-image {
+                margin-bottom: 1.5rem; /* Add margin below image on mobile */
+            }
             .about-image {
                 width: 100%; /* Adjust image width */
                 margin-bottom: 1rem; /* Add margin below image */
@@ -684,11 +887,11 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#graphic">Graphic</a></li>
-                    <li><a href="#poetry">Poetry</a></li>
-                    <li><a href="#critical-inquiries">Critical Inquiries</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#research">research</a></li>
+                    <li><a href="#teaching">teaching</a></li>
+                    <li><a href="#graphic">graphic</a></li>
+                    <li><a href="#poetry">poetry</a></li>
                 </ul>
             </nav>
         </div>
@@ -696,9 +899,9 @@
 
     <section id="home" class="hero">
         <div class="container hero-content">
-            <h1>Art, Poetry & Essays </h1>
-            <p>A collection of inspirations across spheres</p>
-            <a href="#graphic" class="btn">Explore My Work</a>
+            <h1>inquiries, art & poetry </h1>
+            <p>collecting inspirations across spheres</p>
+            <a href="#research" class="btn">View my work</a>
         </div>
     </section>
 
@@ -709,11 +912,67 @@
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="images/profile.jpeg" alt="Siyu Xie's profile photo">
+                    <img src="images/profile.jpeg" alt="Siyu Xie's profile photo" loading="lazy">
                 </div>
                 <div class="about-text">
-                    <p>I am currently a doctoral researcher at the Department of Comparative Thought and Literature at Johns Hopkins University. My dissertation project examines how plants grow out of the pages of literature in the 16th-18th centuries in China and looks into how the literary circle leaf their words to story their relationship with the non-human world.</p>
+                    <p>I am a PhD candidate at the Department of Comparative Thought and Literature at Johns Hopkins University. My research intersects Chinese and comparative literary studies, environmental humanities, history of natural sciences, eco-philosophy, and early modern media. My dissertation project looks into how the literary circle storied their embodied relationship with the vegetal world in early modern China. It uncovers an entanglement between literary production and the documentation of the natural world. Beyond academia, I am drawn to creative practices that help us think and sense the world ecologically.  </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="research">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research</h2>
+            </div>
+            <div class="research-list">
+                <div class="research-item">
+                    <div class="research-text">
+                        <h3>Dissertation project: "A vegetal sympoetics: sharing life with plum blossom trees in the early modern China"</h3>
+                        <p>This project examines how plants grow out of the pages of literature in the 16th-18th centuries in China, focusing on how the literary circle leaf their words to story their relationship with the non-human world.</p>
+                    </div>
+                </div>
+                
+                <div class="research-item">
+                    <div class="research-text">
+                        <h3>Research talk: "The Catalogue of Plums: The Comportments of Floral Bodies"</h3>
+                        <p>Department of Comparative Thought and Literature, Johns Hopkins University, April 30, 2025</p>
+                    </div>
+                </div>
+                
+                <div class="research-item">
+                    <div class="research-text">
+                        <h3>Conference presentation: "Nature's Orientalism versus Productive Ambiguity"</h3>
+                        <p>Nature-Thinking Hopkins-Bauhaus Summer Lab on Comparative Thought, Weimar, Germany, June 21, 2025.</p>
+                    </div>
+                </div>
+                
+                <div class="research-item">
+                    <div class="research-text">
+                        <h3>Conference presentation: "The Resistance to Metaphor"</h3>
+                        <p>American Comparative Literature Association (ACLA) Annual Convention, virtual, May 30, 2025.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="teaching" class="teaching">
+        <div class="container">
+            <div class="section-title">
+                <h2>Teaching</h2>
+            </div>
+            <div class="teaching-list">
+                <h3>Teaching competences:</h3>
+                <p>Chinese literature and culture</p>
+                <p>History of literary thought in the east and west</p>
+                <p>Cultural and literary approaches to plant studies</p>
+                <p>Foraging botanical metaphors: plants and literature in the east and west</p>
+                <p>Thoreau in China: reception, translation, and ecological thought</p>
+                <p>Nature writing in East Asia</p>
+                <p>Classificatory imagination in natural history and literature</p>
+                <p>Chinese language course beginner to advanced</p>
             </div>
         </div>
     </section>
@@ -725,14 +984,14 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/tritri.jpeg" alt="Color pencil drawing of a hedgehog named Tritri">
+                    <img src="images/tritri.jpeg" alt="Color pencil drawing of a hedgehog named Tritri" loading="lazy">
                     <div class="gallery-item-info">
                         <h4>Tritri</h4>
                         <p>Color Pencil Drawing, 2024</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/cats_on_bonbons.jpeg" alt="Color pencil drawing of cats on bonbons">
+                    <img src="images/cats_on_bonbons.jpeg" alt="Color pencil drawing of cats on bonbons" loading="lazy">
                     <div class="gallery-item-info">
                         <h4>Cats on Bonbons</h4>
                         <p>Color Pencil Drawing, 2024</p>
@@ -790,34 +1049,6 @@ Nestling into the ocean's deepest ripples.</p>
                         <p style="text-align: right; font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; margin-top: 1.5rem; margin-right: 4rem; color: #666;">Locationless, dateless</p>
                     </div>
                 </div>
-                <div class="poetry-card">
-                    <div class="poetry-content">
-                        <h3 style="text-align: center;">Urban rebirth</h3>
-                        <p style="white-space: pre; text-align: left; font-family: 'EB Garamond', Georgia, serif; line-height: 1.5;">We |stand| without support,
-Or perhaps we tumble.
-We learn to breathe carefully,
-Or risk inhaling the scent of a stranger's scalp.
-We glimpse many private details:
-Hairs on necks- oil from hair- dirt beneath nails-
-A scalped cutting into a pulsing organ-
-The surgeon learning from bloody videos-
-Erotic novels and chat histories on a giant phone screen.
-Struggling to squeeze out of the subway, we exhale,
-My sister exclaims: It feels like I've just been born.
-The rush hour turned us into twins.</p>
-                        <p style="text-align: right; font-family: 'EB Garamond', Georgia, serif; font-size: 1rem; margin-top: 1.5rem; margin-right: 4rem; color: #666;">Locationless, dateless</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="critical-inquiries" class="critical-inquiries">
-        <div class="container">
-            <div class="section-title">
-                <h2>Critical Inquiries</h2>
-            </div>
-            <div class="critical-inquiries-list">
             </div>
         </div>
     </section>
