@@ -253,12 +253,10 @@
             object-fit: cover;
             object-position: center;
             transition: transform 0.3s ease;
-            filter: brightness(1.2) contrast(1.02) saturate(1.1) sepia(0.15) hue-rotate(-20deg);
         }
         
         .about-image:hover img {
             transform: scale(1.05);
-            filter: brightness(1.25) contrast(1.03) saturate(1.2) sepia(0.15) hue-rotate(-25deg);
         }
         
         .about-text {
@@ -445,24 +443,9 @@
             aspect-ratio: 1 / 1;
         }
         
-        /* Make third and fourth images brighter */
-        .gallery-item:nth-child(3) img {
-            filter: brightness(1.1);
-        }
-        
-        .gallery-item:nth-child(4) img {
-            filter: brightness(1.1);
-        }
-        
         /* Ensure placeholder4 displays correctly */
         .gallery-item:nth-child(6) img {
-            filter: none;
             object-fit: contain;
-        }
-        
-        /* Add filter to placeholder5 */
-        .gallery-item:nth-child(7) img {
-            filter: brightness(1.1);
         }
         
         .gallery-item-overlay {
