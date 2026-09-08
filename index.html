@@ -444,7 +444,8 @@
         }
 
         .gallery-item:nth-child(9),
-        .gallery-item:nth-child(10) {
+        .gallery-item:nth-child(10),
+        .gallery-item:nth-child(11) {
             grid-column: span 2;
             aspect-ratio: 1 / 1;
         }
@@ -1135,6 +1136,10 @@
                 </div>
                 <div class="gallery-item" onclick="openModal('images/Inkcap.jpeg', 'Inkcap', 'Digital illustration')">
                     <img src="images/Inkcap.jpeg" alt="Inkcap digital illustration" loading="lazy">
+                    <div class="gallery-item-overlay">Click to view</div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Bookflower.jpeg', 'Bookflower', '')">
+                    <img src="images/Bookflower.jpeg" alt="Bookflower digital illustration" loading="lazy">
                     <div class="gallery-item-overlay">Click to view</div>
                 </div>
             </div>
