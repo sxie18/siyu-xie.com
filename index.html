@@ -190,9 +190,20 @@
         
         /* MINIMALIST MIDDLE SECTION STYLES */
         .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             text-align: center;
             margin-bottom: 4rem;
             position: relative;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ddd;
         }
         
         .section-title h2 {
@@ -201,22 +212,10 @@
             font-weight: 400;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            display: inline-block;
+            display: block;
             padding: 0 1rem;
-            background: var(--light-color);
             position: relative;
             z-index: 1;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 25%;
-            right: 25%;
-            top: 50%;
-            height: 1px;
-            background: #ddd;
-            z-index: 0;
         }
         
         /* About section */
@@ -445,7 +444,8 @@
 
         .gallery-item:nth-child(9),
         .gallery-item:nth-child(10),
-        .gallery-item:nth-child(11) {
+        .gallery-item:nth-child(11),
+        .gallery-item:nth-child(12) {
             grid-column: span 2;
             aspect-ratio: 1 / 1;
         }
@@ -1142,8 +1142,12 @@
                     <img src="images/Inkcap.jpeg" alt="Inkcap digital illustration" loading="lazy">
                     <div class="gallery-item-overlay">Click to view</div>
                 </div>
-                <div class="gallery-item new-gallery-item" onclick="openModal('images/Bookflower.jpeg', 'Bookflower', '')">
+                <div class="gallery-item new-gallery-item" onclick="openModal('images/Bookflower.jpeg', 'Bookflower', 'Digital illustration')">
                     <img src="images/Bookflower.jpeg" alt="Bookflower digital illustration" loading="lazy">
+                    <div class="gallery-item-overlay">Click to view</div>
+                </div>
+                <div class="gallery-item" onclick="openModal('images/Southwest-Airline.jpeg', 'Southwest Airline', 'Watercolor')">
+                    <img src="images/Southwest-Airline.jpeg" alt="Southwest Airline watercolor" loading="lazy">
                     <div class="gallery-item-overlay">Click to view</div>
                 </div>
             </div>
